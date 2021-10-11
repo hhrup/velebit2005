@@ -48,11 +48,12 @@ const addFirstNImages = function() {
   };
 };
 
-// Adding images and observers, using both function declarations and expressions just to showcase hoisting declarations
-addFirstNImages();
-const images = document.querySelectorAll("img[data-src]");
-addObservers(images);
-
+// IIFE (IMMEDIATELY INVOKED FUNCTION EXPRESSION), Adding images and observers, using both function declarations and expressions just to showcase hoisting declarations
+(function() {
+  addFirstNImages();
+  const images = document.querySelectorAll("img[data-src]");
+  addObservers(images);
+}());
 
 function addObservers(imgs) {
   // Lazy loading the images

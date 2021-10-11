@@ -1,4 +1,4 @@
-// Rendering content containers
+// Rendering content(image) containers
 const renderContentContainer = function (imgNmbr, galleryEl) {
   const html = `
     <figure class="content-container">
