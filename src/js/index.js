@@ -85,6 +85,7 @@ function toggleModalClasses() {
   modal.classList.toggle('hidden');
   modalImg.classList.toggle('hidden');
   overlay.classList.toggle('hidden');
+  modalImg.src = '';
 };
 
 function toggleAboutClasses() {
