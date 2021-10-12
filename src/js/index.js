@@ -85,7 +85,6 @@ function toggleModalClasses() {
   modal.classList.toggle('hidden');
   modalImg.classList.toggle('hidden');
   overlay.classList.toggle('hidden');
-  modalImg.src = '';
 };
 
 function toggleAboutClasses() {
@@ -116,6 +115,10 @@ window.addEventListener('click', e => {
   if (targetClass === 'modal-img' || targetClass === 'overlay') {
     toggleModalClasses();
     enableScroll();
+    // clear source after css scale animation ends
+    setTimeout(() => {
+      modalImg.src = '';
+    }, 200);
   }
   if (targetClass === 'img-gallery-small') {
     showModal(e.target.dataset.key);
