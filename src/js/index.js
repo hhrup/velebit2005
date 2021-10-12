@@ -98,11 +98,11 @@ function showModal(key) {
 
 // Click event handling for everything
 let isAboutModalOpen = false;
+const aboutClasses = ['about', 'about-modal', 'gear', 'gear-img', 'gear-img-actual']
 window.addEventListener('click', e => {
   const targetClass = e.target.classList[0];
-
   // About section
-  if(targetClass === 'about') {
+  if(aboutClasses.includes(targetClass)) {
      toggleAboutClasses();
      isAboutModalOpen = !isAboutModalOpen;
      if (isAboutModalOpen)
