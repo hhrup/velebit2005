@@ -9,16 +9,16 @@ const aboutModal = document.querySelector('.about-modal');
 const year = document.querySelector('.year');
 
 // Footer year
-  year.textContent = new Date().getFullYear();
+year.textContent = new Date().getFullYear();
 
 // If page gets refreshed it scrolls back to top
 window.onbeforeunload = function() {
   window.scrollTo(0,0);
 };
 
-// Stop scrolling (when modal is shown)
-const eventCodes = {'Home':1, 'End':1, 'PageUp':1, 'PageDown':1, 'ArrowUp':1, 'ArrowDown':1, 'Space':1};
+// Stop scrolling (when modal is shown) //
 // auxclick not working as intended on Logitech G402, so am not going to include it
+const eventCodes = {'Home':1, 'End':1, 'PageUp':1, 'PageDown':1, 'ArrowUp':1, 'ArrowDown':1, 'Space':1};
 const preventDefault = function(e) {
   e.preventDefault();
 };
@@ -33,12 +33,13 @@ const disableScroll = function() {
   window.addEventListener('touchmove', preventDefault, { passive: false }); // Mobile touch/move event
   window.addEventListener('keydown', preventDefaultForKeys);
 };
+
 const enableScroll = function() {
   window.removeEventListener('wheel', preventDefault, { passive: false });
   window.removeEventListener('touchmove', preventDefault, { passive: false });
   window.removeEventListener('keydown', preventDefaultForKeys);
 };
-
+// End stop scroll section //
 
 const addFirstNImages = function() {
   for (let i = 1; i <= numOfImgs; i++) {
@@ -48,7 +49,8 @@ const addFirstNImages = function() {
   };
 };
 
-// IIFE (IMMEDIATELY INVOKED FUNCTION EXPRESSION), Adding images and observers, using both function declarations and expressions just to showcase hoisting declarations
+// IIFE (IMMEDIATELY INVOKED FUNCTION EXPRESSION), Adding images and observers, 
+// using both function declarations and expressions just to showcase hoisting declarations
 (function() {
   addFirstNImages();
   const images = document.querySelectorAll("img[data-src]");
@@ -77,24 +79,23 @@ function addObservers(imgs) {
   };
 
   const imgObserver = new IntersectionObserver(loadImg, options);
-
   imgTargets.forEach((img) => imgObserver.observe(img));
-};
+}
 
 function toggleModalClasses() {
   modal.classList.toggle('hidden');
   modalImg.classList.toggle('hidden');
   overlay.classList.toggle('hidden');
-};
+}
 
 function toggleAboutClasses() {
   aboutModal.classList.toggle('hidden-about');
-};
+}
 
 function showModal(key) {
   toggleModalClasses();
   modalImg.src = `./src/img/gallery/${key}.jpg`;
-};
+}
 
 // Click event handling for everything
 let isAboutModalOpen = false;
