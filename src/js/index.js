@@ -3,10 +3,12 @@ import { renderContentContainer } from "./components";
 const numOfImgs = 62;
 const galleryEl = document.querySelector('.gallery');
 const modal = document.querySelector('.modal');
-const modalImg = document.querySelector('.modal-img');
 const overlay = document.querySelector('.overlay');
 const aboutModal = document.querySelector('.about-modal');
 const year = document.querySelector('.year');
+
+const modalImg = document.querySelector('.modal-img');
+modalImg.alt = 'Image of mountains';
 
 // Footer year
 year.textContent = new Date().getFullYear();

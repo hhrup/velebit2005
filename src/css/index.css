@@ -84,14 +84,14 @@ body {
   color: white;
   font-size: 2rem;
   font-weight: 400;
-  background-color: #b2bec3;
+  background-color: #2d3436;
   cursor: pointer;
   border: none;
 }
 
 .about:hover {
   background-color: #dfe6e9;
-  color: #636e72;
+  color: #2d3436;
 }
 
 .about:active {
